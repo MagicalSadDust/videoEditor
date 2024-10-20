@@ -247,7 +247,7 @@ export const Button = styled.button`
     font-size: 0.6rem;
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 393px) {
     width: 160px;
     height: 60px;
     font-size: 0.6rem;
