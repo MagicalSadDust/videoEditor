@@ -120,9 +120,11 @@ export const ClearButton = styled.button`
 
 export const ControlPanelContainer = styled.div`
   display: flex;
-  position: absolute;
+  position: fixed;
   align-items: center;
   bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   height: 300px;
   flex-direction: column;
@@ -130,8 +132,18 @@ export const ControlPanelContainer = styled.div`
   background-color: #fff;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  
+  @supports not (padding: env(safe-area-inset-bottom)) {
+    padding-bottom: 20px;
+  }
+  
+  height: calc(300px - env(safe-area-inset-bottom));
+  
+  @supports not (height: calc(300px - env(safe-area-inset-bottom))) {
+    height: 300px;
+  }
 `;
-
 export const IconPanel = styled.div`
   display: flex;
   justify-content: space-between;

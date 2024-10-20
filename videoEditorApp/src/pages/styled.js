@@ -7,7 +7,6 @@ export const MainComponent = styled.div`
     justify-content: center;
     width: 100%;
     height: 100%;
-    max-width: 835px;
     background-color: #fff;
     padding-bottom: env(safe-area-inset-bottom);
 `;
