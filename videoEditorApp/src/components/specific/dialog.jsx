@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types';
-import { DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import { RoundedDialog, Button } from './styled';
 import content from 'Content';
 

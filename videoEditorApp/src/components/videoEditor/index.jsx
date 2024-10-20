@@ -1,9 +1,11 @@
-import { memo, useCallback,useEffect, useMemo, useRef, useState} from 'react';
+import { memo, Suspense, lazy, useCallback,useEffect, useMemo, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
-import ControlPanel from 'Components/specific/controlPanel';
+//import ControlPanel from 'Components/specific/controlPanel';
 import { YOUTUBE_LINK_KEY } from 'Constants';
 import { EditorContainer, VideoContainer } from './styled';
+
+const ControlPanel = lazy(() => import('Components/specific/controlPanel'));
 
 const VideoEditor = ({ onButtonClick }) => {
   const playerRef = useRef(null);
@@ -82,15 +84,17 @@ const VideoEditor = ({ onButtonClick }) => {
           onDuration={(duration) => handleStateChange('duration', duration)}
         />
       </VideoContainer>
-      <ControlPanel
-        {...videoState}
-        onMute={() => handleToggle('muted')}
-        onLoop={() => handleToggle('loop')}
-        onPlayPause={() => handleToggle('playing')}
-        onSeekChange={handleSeekChange}
-        onCut={handleCut}
-        onButtonClick={onButtonClick}
-      />
+      <Suspense fallback={<></>}>
+        <ControlPanel
+          {...videoState}
+          onMute={() => handleToggle('muted')}
+          onLoop={() => handleToggle('loop')}
+          onPlayPause={() => handleToggle('playing')}
+          onSeekChange={handleSeekChange}
+          onCut={handleCut}
+          onButtonClick={onButtonClick}
+        />
+      </Suspense>
     </EditorContainer>
   );
 };

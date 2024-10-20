@@ -1,10 +1,16 @@
 import { forwardRef, memo, useMemo, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { VolumeUp, VolumeOff, AllInclusive, PlayArrow, Pause, MovieFilterOutlined } from '@mui/icons-material';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
+import MovieFilterOutlinedIcon from '@mui/icons-material/MovieFilterOutlined';
 import Range from 'Components/specific/range';
 import Overlay from 'Components/specific/overlay';
 import DialogComponent from 'Components/specific/dialog';
 import { ICON_STYLES, ROUTES } from 'Constants';
+import content from 'Content';
 import { ControlPanelContainer, IconPanel, IconWrapper, ButtonsPanel, Button } from './styled';
 
 const ControlPanel = ({
@@ -27,22 +33,22 @@ const ControlPanel = ({
 
   const iconProps = useMemo(() => ({
     mute: {
-      Icon: muted ? VolumeOff : VolumeUp,
+      Icon: muted ? VolumeOffIcon : VolumeUpIcon,
       style: muted ? ICON_STYLES.light : ICON_STYLES.dark,
       onClick: onMute,
     },
     loop: {
-      Icon: AllInclusive,
+      Icon: AllInclusiveIcon,
       style: loop ? ICON_STYLES.dark : ICON_STYLES.light,
       onClick: onLoop,
     },
     playPause: {
-      Icon: playing ? Pause : PlayArrow,
+      Icon: playing ? PauseIcon : PlayArrowIcon,
       style: ICON_STYLES.pause,
       onClick: onPlayPause,
     },
     cut: {
-      Icon: MovieFilterOutlined,
+      Icon: MovieFilterOutlinedIcon,
       style: ICON_STYLES.light,
       onClick: () => onCut(start, Math.min(start + 15 / duration, 1)),
     },
@@ -79,8 +85,8 @@ const ControlPanel = ({
         onRangeChange={onCut}
       />
       <ButtonsPanel>
-        <Button onClick={handleChangeVideo}>Change video</Button>
-        <Button isPrimary onClick={handleContinue}>Continue</Button>
+        <Button onClick={handleChangeVideo}>{content.controlPanel.changeButtonText}</Button>
+        <Button isPrimary onClick={handleContinue}>{content.controlPanel.continueButtonText}</Button>
       </ButtonsPanel>
       <DialogComponent openDialog={openDialog} onOpenDialog={setOpenDialog}/>
       {openDialog && <Overlay targetRef={cutIconRef} />}

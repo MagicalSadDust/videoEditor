@@ -10,6 +10,10 @@ const content = {
   },
   inputWithClose: {
     placeholder: "https://youtu.be/...",
+  },
+  controlPanel: {
+    changeButtonText: "Change video",
+    continueButtonText: "Continue",
   }
 }
 
