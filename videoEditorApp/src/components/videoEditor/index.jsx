@@ -73,7 +73,7 @@ const VideoEditor = ({ onButtonClick }) => {
           ref={playerRef}
           className="react-player"
           width="100%"
-          height="80%"
+          height="100%"
           url={videoState.link}
           playing={videoState.playing}
           loop={videoState.loop}
