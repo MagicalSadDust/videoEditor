@@ -268,6 +268,14 @@ export const RoundedDialog = styled(Dialog)(() => ({
   '& .MuiBackdrop-root': {
     backgroundColor: 'rgba(0, 0, 0, 0.25)',
   },
+  '@media (max-width: 393px)': {
+    '& .MuiDialogTitle-root': {
+      fontSize: '0.5rem',
+    },
+    '& .MuiDialogContentText-root': {
+      fontSize: '0.5rem',
+    }
+  }
 }));
 
 export const OverlayContainer = styled.div`
