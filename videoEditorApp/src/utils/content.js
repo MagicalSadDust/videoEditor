@@ -2,7 +2,7 @@ const content = {
   videoLink: {
     title: "Add video link ",
     buttonText: "Proceed",
-    helperText: "Please enter the YouTube video link of the video you want to edit."
+    helperText: "Please insert a link to the YouTube video you want to edit."
   },
   dialog: {
     title: "Selected range is too long",
