@@ -1,7 +1,9 @@
-import { memo, useMemo } from 'react';
+import { forwardRef, memo, useMemo, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { VolumeUp, VolumeOff, AllInclusive, PlayArrow, Pause, MovieFilterOutlined } from '@mui/icons-material';
 import Range from 'UI/range';
+import Overlay from 'UI/overlay';
+import DialogComponent from 'UI/dialog';
 import { ICON_STYLES, ROUTES } from 'Constants';
 import { ControlPanelContainer, IconPanel, IconWrapper, ButtonsPanel, Button } from './styled';
 
@@ -20,6 +22,9 @@ const ControlPanel = ({
   onSeekChange,
   onButtonClick,
 }) => {
+  const [openDialog, setOpenDialog] = useState(false);
+  const cutIconRef = useRef(null);
+
   const iconProps = useMemo(() => ({
     mute: {
       Icon: muted ? VolumeOff : VolumeUp,
@@ -45,6 +50,16 @@ const ControlPanel = ({
 
   const handleChangeVideo = () => onButtonClick(ROUTES.HOME);
 
+  const handleContinue = () => {
+    const selectedDuration = (end - start) * duration;
+    if (selectedDuration > 15) {
+      setOpenDialog(true);
+    } else {
+      // There should be logic here to continue if duration <= 15 seconds, but there were no instructions =)
+      console.log('Continuing with selected range');
+    }
+  };
+
   return (
     <ControlPanelContainer>
       <IconPanel>
@@ -53,7 +68,7 @@ const ControlPanel = ({
           <IconComponent {...iconProps.loop} />
         </IconWrapper>
         <IconComponent {...iconProps.playPause} />
-        <IconComponent {...iconProps.cut} />
+        <IconComponent {...iconProps.cut} ref={cutIconRef}/>
       </IconPanel>
       <Range
         progress={progress}
@@ -65,14 +80,16 @@ const ControlPanel = ({
       />
       <ButtonsPanel>
         <Button onClick={handleChangeVideo}>Change video</Button>
-        <Button isPrimary>Continue</Button>
+        <Button isPrimary onClick={handleContinue}>Continue</Button>
       </ButtonsPanel>
+      <DialogComponent openDialog={openDialog} onOpenDialog={setOpenDialog}/>
+      {openDialog && <Overlay targetRef={cutIconRef} />}
     </ControlPanelContainer>
   );
 };
 
-const IconComponent = memo(({ Icon, style, onClick }) => (
-  <Icon onClick={onClick} sx={style} />
+const IconComponent = forwardRef(({ Icon, style, onClick }, ref) => (
+  <Icon ref={ref} onClick={onClick} sx={style} />
 ));
 
 IconComponent.displayName = 'IconComponent';

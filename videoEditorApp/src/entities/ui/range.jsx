@@ -8,23 +8,12 @@ const Range = (props) => {
   const {
     start,
     end,
-    progress,
     duration,
     onSeekChange,
     onRangeChange
   } = props;
+
   const [value, setValue] = useState([0, 100]);
-
-  useEffect(() => {
-    if (progress && typeof progress.played === 'number') {
-      const playedValue = playedToSliderValue(progress.played);
-      setValue(prevValue => [
-        playedValue,
-        Math.max(playedValue, prevValue[1], end * 100)
-      ]);
-    }
-  }, [progress, end]);
-
   useEffect(() => {
     setValue([start * 100, end * 100]);
   }, [start, end]);

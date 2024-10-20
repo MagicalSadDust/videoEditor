@@ -7,8 +7,6 @@ export const MainComponent = styled.div`
     justify-content: center;
     width: 100%;
     height: 100%;
-    max-width: 835px; //768px;
+    max-width: 835px;
     background-color: #fff;
 `;
-
-export const PrimaryButton = styled.button``;

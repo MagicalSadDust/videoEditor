@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import InputWithClose from 'UI/inputWithClose';
-import Button from 'UI/button';
+import MainButton from 'UI/mainButton';
 import { ROUTES, ICON_STYLES } from 'Constants';
 import { Component, Title, Sub } from './styled';
 
@@ -20,7 +20,7 @@ const VideoLink = (props) => {
     <Component>
       <Title>Add video link <Sub><HelpOutlineIcon style={ICON_STYLES.help}/></Sub></Title>
       <InputWithClose onIsButtonEnabled={setIsButtonEnabled} />
-      <Button title={'Proceed'} withArrow isButtonEnabled={isButtonEnabled} onButtonClick={handleButtonClick} />
+      <MainButton title={'Proceed'} withArrow isButtonEnabled={isButtonEnabled} onButtonClick={handleButtonClick} />
     </Component>
   );
 };

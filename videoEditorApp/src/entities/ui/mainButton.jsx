@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { GradientButton, Arrow } from './styled';
 
-const Button = (props) => {
+const MainButton = (props) => {
   const { title, withArrow, isButtonEnabled, onButtonClick } = props;
 
   return (
@@ -12,11 +12,11 @@ const Button = (props) => {
   );
 };
 
-Button.propTypes = {
+MainButton.propTypes = {
   title: PropTypes.string,
   withArrow: PropTypes.bool,
   isButtonEnabled: PropTypes.bool,
   onButtonClick: PropTypes.func
 };
 
-export default Button;
+export default MainButton;

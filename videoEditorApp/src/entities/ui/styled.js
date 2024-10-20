@@ -1,5 +1,6 @@
 import styled, { css} from 'styled-components';
 import Slider from '@mui/material/Slider';
+import Dialog from '@mui/material/Dialog';
 
 export const GradientButton = styled.button`
   display: inline-flex;
@@ -241,7 +242,7 @@ export const Button = styled.button`
   }
 
   @media (max-width: 450px) {
-    width: 180px;
+    width: 170px;
     height: 60px;
     font-size: 0.6rem;
   }
@@ -257,4 +258,25 @@ export const Button = styled.button`
     height: 60px;
     font-size: 0.6rem;
   }
+`;
+
+export const RoundedDialog = styled(Dialog)(() => ({
+  '& .MuiDialog-paper': {
+    borderRadius: '40px',
+    padding: '10px'
+  },
+  '& .MuiBackdrop-root': {
+    backgroundColor: 'rgba(0, 0, 0, 0.25)',
+  },
+}));
+
+export const OverlayContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(228, 231, 25, 0.5);
+  box-shadow: 10px 10px 30px 30px rgba(228, 231, 25, 0.5);
+  z-index: 1000;
 `;
