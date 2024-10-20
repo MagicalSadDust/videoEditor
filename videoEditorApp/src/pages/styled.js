@@ -9,4 +9,5 @@ export const MainComponent = styled.div`
     height: 100%;
     max-width: 835px;
     background-color: #fff;
+    padding-bottom: env(safe-area-inset-bottom);
 `;
