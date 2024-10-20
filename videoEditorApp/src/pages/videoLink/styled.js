@@ -26,7 +26,3 @@ export const Sub = styled.sup`
         opacity: .8;
     }
 `;
-
-export const Icon = styled.img.attrs({src: 'Public/question.png'})`
-    width: 20px;
-  `;
