@@ -20,12 +20,6 @@ export const VideoContainer = styled.div`
   height: calc(100% - 285px);
   aspect-ratio: 9 / 16;
   overflow: hidden;
-
-  @media (max-width: 360px) {
-    .react-player {
-      height: 95% !important;
-    }
-  }
 `;
 
 
