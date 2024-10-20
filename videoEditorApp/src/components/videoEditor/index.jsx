@@ -1,7 +1,7 @@
 import { memo, useCallback,useEffect, useMemo, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
-import ControlPanel from 'UI/controlPanel';
+import ControlPanel from 'Components/specific/controlPanel';
 import { YOUTUBE_LINK_KEY } from 'Constants';
 import { EditorContainer, VideoContainer } from './styled';
 

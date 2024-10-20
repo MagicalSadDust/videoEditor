@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Container, InputContainer, TextArea, ClearButton } from './styled';
 import { YOUTUBE_LINK_KEY, YOUTUBE_REGEX } from 'Constants';
+import content from 'Content';
 
 const InputWithClose = ({ onIsButtonEnabled }) => {
   const [link, setLink] = useState('');
@@ -42,7 +43,7 @@ const InputWithClose = ({ onIsButtonEnabled }) => {
 
   const inputProps = useMemo(() => ({
     type: "text",
-    placeholder: "https://youtu.be/...",
+    placeholder: content.inputWithClose.placeholder,
     value: link,
     onChange: handleInputChange
   }), [link, handleInputChange]);

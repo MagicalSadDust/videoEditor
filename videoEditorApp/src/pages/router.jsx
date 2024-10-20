@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import VideoLink from 'Pages/videoLink';
-import VideoEditor from 'Pages/videoEditor';
+import VideoLink from 'Components/videoLink';
+import VideoEditor from 'Components/videoEditor';
 import { ROUTES } from 'Constants';
 import { MainComponent } from './styled';
 
@@ -26,8 +26,8 @@ const Router = () => {
 
   return (
     <MainComponent>
-      {page === ROUTES.HOME && <VideoLink onButtonClick={navigateTo}/>}
-      {page === ROUTES.EDITOR && <VideoEditor onButtonClick={navigateTo}/>}
+      {page === ROUTES.home && <VideoLink onButtonClick={navigateTo}/>}
+      {page === ROUTES.editor && <VideoEditor onButtonClick={navigateTo}/>}
     </MainComponent>
   );
 };

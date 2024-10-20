@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropType from 'prop-types';
 import Box from '@mui/material/Box';
-import { formatTime, playedToSliderValue } from '../expressions/converters';
+import { formatTime } from '../../features/expression';
 import { RangeContainer, RangeSlider } from './styled';
 
 const Range = (props) => {

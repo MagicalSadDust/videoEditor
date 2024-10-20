@@ -12,11 +12,3 @@ export const formatTime = (seconds) => {
     
   return parts.join(':');
 };
-
-export const playedToSliderValue = (played) => {
-  return typeof played === 'number' ? played * 100 : 0;
-};
-
-export const sliderValueToPlayed = (value) => {
-  return value / 100;
-};

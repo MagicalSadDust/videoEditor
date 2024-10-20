@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MainComponent } from '../styled';
+import { MainComponent } from '../../pages/styled';
 
 export const Component = styled(MainComponent)`
     margin-top: 40%;

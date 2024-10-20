@@ -1,9 +1,9 @@
 import { forwardRef, memo, useMemo, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { VolumeUp, VolumeOff, AllInclusive, PlayArrow, Pause, MovieFilterOutlined } from '@mui/icons-material';
-import Range from 'UI/range';
-import Overlay from 'UI/overlay';
-import DialogComponent from 'UI/dialog';
+import Range from 'Components/specific/range';
+import Overlay from 'Components/specific/overlay';
+import DialogComponent from 'Components/specific/dialog';
 import { ICON_STYLES, ROUTES } from 'Constants';
 import { ControlPanelContainer, IconPanel, IconWrapper, ButtonsPanel, Button } from './styled';
 
@@ -48,7 +48,7 @@ const ControlPanel = ({
     },
   }), [muted, onMute, loop, onLoop, playing, onPlayPause, onCut, start, duration]);
 
-  const handleChangeVideo = () => onButtonClick(ROUTES.HOME);
+  const handleChangeVideo = () => onButtonClick(ROUTES.home);
 
   const handleContinue = () => {
     const selectedDuration = (end - start) * duration;

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import InputWithClose from 'UI/inputWithClose';
-import MainButton from 'UI/mainButton';
+import InputWithClose from 'Components/specific/inputWithClose';
+import DecorButton from 'Components/specific/decorButton';
 import { ROUTES, ICON_STYLES } from 'Constants';
+import content from 'Content';
 import { Component, Title, Sub } from './styled';
 
 const VideoLink = (props) => {
@@ -13,14 +14,14 @@ const VideoLink = (props) => {
 
   const handleButtonClick = () => {
     if(!isButtonEnabled) return;
-    onButtonClick(ROUTES.EDITOR);
+    onButtonClick(ROUTES.editor);
   };
 
   return (
     <Component>
-      <Title>Add video link <Sub><HelpOutlineIcon style={ICON_STYLES.help}/></Sub></Title>
+      <Title>{content.videoLink.title}<Sub><HelpOutlineIcon style={ICON_STYLES.help}/></Sub></Title>
       <InputWithClose onIsButtonEnabled={setIsButtonEnabled} />
-      <MainButton title={'Proceed'} withArrow isButtonEnabled={isButtonEnabled} onButtonClick={handleButtonClick} />
+      <DecorButton withArrow isButtonEnabled={isButtonEnabled} onButtonClick={handleButtonClick} />
     </Component>
   );
 };

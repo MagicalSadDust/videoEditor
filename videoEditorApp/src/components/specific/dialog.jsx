@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { RoundedDialog, Button } from './styled';
+import content from 'Content';
 
 const DialogComponent = ({ openDialog, onOpenDialog }) => {
 
@@ -15,16 +16,12 @@ const DialogComponent = ({ openDialog, onOpenDialog }) => {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogTitle id="alert-dialog-title">{"Selected range is too long"}</DialogTitle>
+      <DialogTitle id="alert-dialog-title">{content.dialog.title}</DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          The selected range is longer than 15 seconds. Please use the &#34;Cut&#34; button to reduce the range to 15 seconds or less.
-        </DialogContentText>
+        <DialogContentText id="alert-dialog-description">{content.dialog.message}</DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleCloseDialog} isPrimary autoFocus>
-          OK
-        </Button>
+        <Button onClick={handleCloseDialog} isPrimary autoFocus>{content.dialog.buttonText}</Button>
       </DialogActions>
   </RoundedDialog>
   );

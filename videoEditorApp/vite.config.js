@@ -13,9 +13,10 @@ export default defineConfig({
   resolve: {
     alias: {
       Public: path.resolve(__dirname, 'public'),
-      Pages: path.resolve(__dirname, 'src/pages'),
-      UI: path.resolve(__dirname, 'src/entities/ui'),
-      Constants: path.resolve(__dirname, 'src/entities/constants'),
+      Components: path.resolve(__dirname, 'src/components'),
+      UI: path.resolve(__dirname, 'src/components/specific'),
+      Constants: path.resolve(__dirname, 'src/utils/constants'),
+      Content: path.resolve(__dirname, 'src/utils/content'),
     },
   },
 })
