@@ -26,3 +26,15 @@ export const Sub = styled.sup`
         opacity: .8;
     }
 `;
+
+export const HelperTooltip = styled.p`
+    display: flex;
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 43px;
+    font-size: 0.6rem;
+    background: linear-gradient(34deg, #8a2ce2 0%, #6760f0 74%, #69d3fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+`;
