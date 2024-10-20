@@ -32,8 +32,9 @@ export const HelperTooltip = styled.p`
     position: absolute;
     width: auto;
     height: auto;
+    text-align: center;
     top: 43px;
-    font-size: 0.6rem;
+    font-size: 0.5rem;
     background: linear-gradient(34deg, #8a2ce2 0%, #6760f0 74%, #69d3fe);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
