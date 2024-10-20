@@ -17,7 +17,7 @@ export const VideoContainer = styled.div`
   justify-content: center;
   position: relative;
   width: 100%;
-  height: calc(100% - 285px);
+  height: calc(100% - 265px);
   aspect-ratio: 9 / 16;
   overflow: hidden;
 `;
