@@ -252,7 +252,7 @@ export const RangeSlider = styled(Slider)(() => ({
     marginLeft: '20px',
   },
   '& .MuiSlider-markLabel[data-index="1"]': {
-    paddingRight: '20px'
+    paddingRight: '35px'
   },
 }));
 
