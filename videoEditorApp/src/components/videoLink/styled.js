@@ -2,16 +2,7 @@ import styled from 'styled-components';
 import { MainComponent } from '../../pages/styled';
 
 export const Component = styled(MainComponent)`
-    margin-top: 40%;
-    justify-content: flex-start;
-
-    @media (max-width: 1280px) {
-        margin-top: 25%;
-    }
-
-    @media (max-width: 450px) {
-        margin-top: 40%;
-    }
+    justify-content: center;
 `;
 
 export const Title = styled.h3`
