@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import { MainComponent } from '../../pages/styled';
 
 export const Component = styled(MainComponent)`
+    display: flex;
+    position: relative;
     justify-content: center;
+    height: auto;
 `;
 
 export const Title = styled.h3`
@@ -24,7 +27,7 @@ export const HelperTooltip = styled.p`
     width: auto;
     height: auto;
     text-align: center;
-    top: 43px;
+    top: 45px;
     font-size: 0.5rem;
     background: linear-gradient(34deg, #8a2ce2 0%, #6760f0 74%, #69d3fe);
     -webkit-background-clip: text;
