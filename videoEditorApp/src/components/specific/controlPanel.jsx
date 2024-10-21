@@ -11,7 +11,20 @@ import Overlay from 'Components/specific/overlay';
 import DialogComponent from 'Components/specific/dialog';
 import { ICON_STYLES, ROUTES } from 'Constants';
 import content from 'Content';
-import { ControlPanelContainer, IconPanel, IconWrapper, ButtonsPanel, Button } from './styled';
+import { ControlPanelContainer, IconPanel, IconsWrapper, IconCutWrapper, LimitIcon, ButtonsPanel, Button } from './styled';
+
+const IconComponent = forwardRef(({ Icon, style, withInfo, onClick }, ref) => (
+  withInfo ? (
+    <IconCutWrapper ref={ref} onClick={onClick}>
+      <Icon sx={style} />
+      <LimitIcon />
+    </IconCutWrapper>
+  ) : (
+    <Icon ref={ref} onClick={onClick} sx={style} />
+  )
+));
+
+IconComponent.displayName = 'IconComponent';
 
 const ControlPanel = ({
   muted,
@@ -50,6 +63,7 @@ const ControlPanel = ({
     cut: {
       Icon: MovieFilterOutlinedIcon,
       style: ICON_STYLES.light,
+      withInfo: true,
       onClick: () => onCut(start, Math.min(start + 15 / duration, 1)),
     },
   }), [muted, onMute, loop, onLoop, playing, onPlayPause, onCut, start, duration]);
@@ -69,10 +83,10 @@ const ControlPanel = ({
   return (
     <ControlPanelContainer>
       <IconPanel>
-        <IconWrapper>
+        <IconsWrapper>
           <IconComponent {...iconProps.mute} />
           <IconComponent {...iconProps.loop} />
-        </IconWrapper>
+        </IconsWrapper>
         <IconComponent {...iconProps.playPause} />
         <IconComponent {...iconProps.cut} ref={cutIconRef}/>
       </IconPanel>
@@ -88,21 +102,16 @@ const ControlPanel = ({
         <Button onClick={handleChangeVideo}>{content.controlPanel.changeButtonText}</Button>
         <Button isPrimary onClick={handleContinue}>{content.controlPanel.continueButtonText}</Button>
       </ButtonsPanel>
-      <DialogComponent openDialog={openDialog} onOpenDialog={setOpenDialog}/>
+      <DialogComponent open={openDialog} onOpen={setOpenDialog}/>
       {openDialog && <Overlay targetRef={cutIconRef} />}
     </ControlPanelContainer>
   );
 };
 
-const IconComponent = forwardRef(({ Icon, style, onClick }, ref) => (
-  <Icon ref={ref} onClick={onClick} sx={style} />
-));
-
-IconComponent.displayName = 'IconComponent';
-
 IconComponent.propTypes = {
   Icon: PropTypes.elementType.isRequired,
   style: PropTypes.object.isRequired,
+  withInfo: PropTypes.bool,
   onClick: PropTypes.func,
 };
 

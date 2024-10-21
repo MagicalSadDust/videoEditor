@@ -156,10 +156,35 @@ export const IconPanel = styled.div`
   }
 `;
 
-export const IconWrapper = styled.div`
+export const IconsWrapper = styled.div`
   display: flex;
   width: 64px;
   justify-content: space-between;
+`;
+
+export const IconCutWrapper = styled.div`
+  position: relative;
+  width: 42px;
+`;
+
+export const LimitIcon = styled.div`
+  position: absolute;
+  top: -5px;
+  right: 0;
+  width: 29px;
+  height: 19px;
+  background-color: #d4fdd4;
+  display: flex;  
+  justify-content: center;  
+  align-items: center; 
+  font-size: 10px; 
+  color: #5aab5e;
+  border-radius: 8px;
+  font-weight: 600;
+  
+  &::after {
+    content: "15s";
+  }
 `;
 
 export const RangeContainer = styled.div`
@@ -235,6 +260,13 @@ export const ButtonsPanel = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  
+  button:first-child {
+    margin-right: 5px;
+  }
+  button:last-child {
+    margin-left: 5px;
+  }
 `;
 
 export const Button = styled.button`

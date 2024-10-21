@@ -6,15 +6,15 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { RoundedDialog, Button } from './styled';
 import content from 'Content';
 
-const DialogComponent = ({ openDialog, onOpenDialog }) => {
+const DialogComponent = ({ open, onOpen }) => {
 
   const handleCloseDialog = () => {
-    onOpenDialog(false);
+    onOpen(false);
   };
 
   return (
     <RoundedDialog
-      open={openDialog}
+      open={open}
       onClose={handleCloseDialog}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
@@ -31,8 +31,8 @@ const DialogComponent = ({ openDialog, onOpenDialog }) => {
 };
 
 DialogComponent.propTypes = {
-  openDialog: PropTypes.bool,
-  onOpenDialog: PropTypes.func
+  open: PropTypes.bool,
+  onOpen: PropTypes.func
 };
 
 export default DialogComponent;
